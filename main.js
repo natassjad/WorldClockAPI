@@ -10,9 +10,9 @@ function getCurrentTime(){
   fetch(buildEndpoint(timezone = document.getElementById('time-zone').value)).then(function(response) {
     response.json().then(function(data) {
       timenow = String(data.currentDateTime);
-      document.getElementById('loading').innerText = timenow;
+      document.getElementById('loading').innerText = timenow.slice(11,16);
     });
   }).catch(function(err) {
-    document.getElementById('loading').innerText ='Failed retrieving current time ' + err;
+    document.getElementById('loading').innerText ='Failed retrieving current time: ' + err;
   }); 
 }
